@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spam Detection ML App</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: #121212;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Top heading */
+        .top-heading {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 24px;
+            font-weight: 600;
+            background: #1f1f1f;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Main container */
+        .container {
+            margin-top: 60px;
+            background: #1e1e1e;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 15px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            background: #2a2a2a;
+            color: #e0e0e0;
+            outline: none;
+        }
+
+        input[type="text"]::placeholder {
+            color: #9e9e9e;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4caf50;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background: #4caf50;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #43a047;
+        }
+
+        h3 {
+            margin-top: 25px;
+            font-weight: 500;
+            color: #81c784;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-heading">
+        PES2UG23CS485
+    </div>
+
+    <div class="container">
+        <h2>Spam Detection using ML (Dockerized)</h2>
+
+        <form method="POST">
+            <input type="text" name="message" placeholder="Enter message" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if result %}
+            <h3>Prediction: {{ result }}</h3>
+        {% endif %}
+    </div>
+
+</body>
+</html>
