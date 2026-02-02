@@ -1,0 +1,3 @@
+[submodule "MAR/MAR_course_lab_content"]
+	path = MAR/MAR_course_lab_content
+	url = https://github.com/MARS-PESU/MAR_course-_labs
