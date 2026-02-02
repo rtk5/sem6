@@ -1,3 +1,6 @@
 [submodule "MAR/MAR_course_lab_content"]
 	path = MAR/MAR_course_lab_content
 	url = https://github.com/MARS-PESU/MAR_course-_labs
+[submodule "GEN-AI/GenAI_Hands_on_content"]
+	path = GEN-AI/GenAI_Hands_on_content
+	url = https://github.com/Piyush-sahoo/GenAI-Hands-on
