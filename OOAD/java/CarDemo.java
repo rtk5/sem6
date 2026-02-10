@@ -16,7 +16,7 @@ class Car {
     }
 }
 
-public class test {
+public class CarDemo {
     public static void main(String[] args) {
         Car car1 = new Car("Toyota", "Camry", 2020);
         Car car2 = new Car("Honda", "Civic", 2019);
