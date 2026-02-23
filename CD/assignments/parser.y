@@ -45,8 +45,6 @@ statement:
     | BREAK ';'
     ;
 
-
-
 /* ---------------- DECLARATIONS ---------------- */
 
 declaration:
@@ -77,7 +75,6 @@ array_dims:
     | array_dims '[' NUM ']'
     ;
 
-
 /* ---------------- EXPRESSIONS ---------------- */
 
 expression_stmt:
@@ -89,8 +86,15 @@ expression_list:
     | expression_list ',' expression
     ;
 
+/* Array access for expressions */
+array_access:
+      ID '[' expression ']'
+    | array_access '[' expression ']'
+    ;
+
 expression:
       ID '=' expression
+    | array_access '=' expression
     | expression '+' expression
     | expression '-' expression
     | expression '*' expression
@@ -103,11 +107,11 @@ expression:
     | expression NE expression
     | expression AND expression
     | ID INC
+    | array_access
     | '(' expression ')'
     | ID
     | NUM
     ;
-
 
 /* ---------------- IF / SWITCH ---------------- */
 
@@ -127,7 +131,6 @@ case_stmt:
     | DEFAULT ':' program
     ;
 
-
 /* ---------------- LOOPS ---------------- */
 
 iteration_stmt:
@@ -145,7 +148,6 @@ for_update:
       expression_list
     | /* empty */
     ;
-
 
 /* ---------------- BLOCK ---------------- */
 
