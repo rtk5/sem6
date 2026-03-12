@@ -1,0 +1,9 @@
+/home/pes2ug23cs485/dev_ws/build/my_bot/CMakeFiles/uninstall.dir
+/home/pes2ug23cs485/dev_ws/build/my_bot/CMakeFiles/my_bot_uninstall.dir
+/home/pes2ug23cs485/dev_ws/build/my_bot/CMakeFiles/test.dir
+/home/pes2ug23cs485/dev_ws/build/my_bot/CMakeFiles/edit_cache.dir
+/home/pes2ug23cs485/dev_ws/build/my_bot/CMakeFiles/rebuild_cache.dir
+/home/pes2ug23cs485/dev_ws/build/my_bot/CMakeFiles/list_install_components.dir
+/home/pes2ug23cs485/dev_ws/build/my_bot/CMakeFiles/install.dir
+/home/pes2ug23cs485/dev_ws/build/my_bot/CMakeFiles/install/local.dir
+/home/pes2ug23cs485/dev_ws/build/my_bot/CMakeFiles/install/strip.dir

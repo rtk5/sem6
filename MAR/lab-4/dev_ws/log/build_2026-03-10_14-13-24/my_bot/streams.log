@@ -1,0 +1,29 @@
+[0.568s] Invoking command in '/home/pes2ug23cs485/dev_ws/build/my_bot': CMAKE_PREFIX_PATH=/opt/ros/humble /bin/cmake --build /home/pes2ug23cs485/dev_ws/build/my_bot -- -j7 -l7
+[1.176s] Invoked command in '/home/pes2ug23cs485/dev_ws/build/my_bot' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /bin/cmake --build /home/pes2ug23cs485/dev_ws/build/my_bot -- -j7 -l7
+[1.305s] Invoking command in '/home/pes2ug23cs485/dev_ws/build/my_bot': CMAKE_PREFIX_PATH=/opt/ros/humble /bin/cmake --install /home/pes2ug23cs485/dev_ws/build/my_bot
+[1.399s] -- Install configuration: ""
+[1.399s] -- Execute custom install script
+[1.399s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/config/empty.yaml
+[1.399s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/description/gazebo_control.xacro
+[1.399s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/description/inertial_macros.xacro
+[1.399s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/description/robot.urdf.xacro
+[1.403s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/description/robot_core.xacro
+[1.403s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/launch/launch_sim.launch.py
+[1.403s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/launch/rsp.launch.py
+[1.403s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/worlds/empty.world
+[1.403s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/ament_index/resource_index/package_run_dependencies/my_bot
+[1.403s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/ament_index/resource_index/parent_prefix_path/my_bot
+[1.403s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/environment/ament_prefix_path.sh
+[1.403s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/environment/ament_prefix_path.dsv
+[1.403s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/environment/path.sh
+[1.403s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/environment/path.dsv
+[1.404s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/local_setup.bash
+[1.404s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/local_setup.sh
+[1.404s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/local_setup.zsh
+[1.404s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/local_setup.dsv
+[1.404s] -- Symlinking: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/package.dsv
+[1.465s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/ament_index/resource_index/packages/my_bot
+[1.465s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/cmake/my_botConfig.cmake
+[1.491s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/cmake/my_botConfig-version.cmake
+[1.491s] -- Up-to-date symlink: /home/pes2ug23cs485/dev_ws/install/my_bot/share/my_bot/package.xml
+[1.515s] Invoked command in '/home/pes2ug23cs485/dev_ws/build/my_bot' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /bin/cmake --install /home/pes2ug23cs485/dev_ws/build/my_bot

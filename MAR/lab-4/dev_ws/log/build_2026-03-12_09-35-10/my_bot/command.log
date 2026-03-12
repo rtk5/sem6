@@ -1,0 +1,4 @@
+Invoking command in '/home/pes2ug23cs485/dev_ws/build/my_bot': CMAKE_PREFIX_PATH=/opt/ros/humble /bin/cmake --build /home/pes2ug23cs485/dev_ws/build/my_bot -- -j7 -l7
+Invoked command in '/home/pes2ug23cs485/dev_ws/build/my_bot' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /bin/cmake --build /home/pes2ug23cs485/dev_ws/build/my_bot -- -j7 -l7
+Invoking command in '/home/pes2ug23cs485/dev_ws/build/my_bot': CMAKE_PREFIX_PATH=/opt/ros/humble /bin/cmake --install /home/pes2ug23cs485/dev_ws/build/my_bot
+Invoked command in '/home/pes2ug23cs485/dev_ws/build/my_bot' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /bin/cmake --install /home/pes2ug23cs485/dev_ws/build/my_bot
