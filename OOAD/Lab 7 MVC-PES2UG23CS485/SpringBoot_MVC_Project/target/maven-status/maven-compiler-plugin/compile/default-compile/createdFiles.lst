@@ -1,0 +1,6 @@
+com/example/mvc/model/ResearchPaper.class
+com/example/mvc/model/Student.class
+com/example/mvc/service/ResearchPaperService.class
+com/example/mvc/MvcApplication.class
+com/example/mvc/controller/ResearchPaperController.class
+com/example/mvc/repository/ResearchPaperRepository.class

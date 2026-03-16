@@ -1,0 +1,14 @@
+Software Required:
+- Java 17 or above
+- Maven
+- VS Code
+
+Steps to Execute:
+1. Extract the ZIP file.
+2. Open in VS Code.
+3. Run: mvn spring-boot:run
+4. Open http://localhost:8080
+
+Description:
+This application accepts a student name from a form
+and displays it on the result page.

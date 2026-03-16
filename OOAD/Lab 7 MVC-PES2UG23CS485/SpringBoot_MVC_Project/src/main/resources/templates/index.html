@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Research Paper Submission Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+<style>
+
+:root {
+    --ink:#0d0d0d;
+    --paper:#f7f4ee;
+    --cream:#efe9db;
+
+    --accent:#2563eb;
+    --accent-dark:#1d4ed8;
+
+    --gold:#b8860b;
+    --muted:#7a7060;
+    --border:#d4cfc6;
+    --white:#ffffff;
+
+    --shadow:0 4px 24px rgba(13,13,13,0.08);
+    --shadow-lg:0 12px 48px rgba(13,13,13,0.14);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+font-family:'DM Sans',sans-serif;
+background-color:var(--paper);
+color:var(--ink);
+min-height:100vh;
+
+background-image:
+radial-gradient(ellipse at 10% 20%,rgba(37,99,235,0.05) 0%,transparent 50%),
+radial-gradient(ellipse at 90% 80%,rgba(184,134,11,0.05) 0%,transparent 50%);
+}
+
+/* HEADER */
+
+header{
+background:var(--ink);
+padding:0 48px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+height:72px;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 2px 20px rgba(0,0,0,0.3);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logo-mark{
+width:38px;
+height:38px;
+background:var(--accent);
+border-radius:6px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-family:'Playfair Display',serif;
+font-size:20px;
+color:white;
+font-weight:700;
+}
+
+.logo-text{
+font-family:'Playfair Display',serif;
+font-size:17px;
+color:white;
+font-weight:600;
+}
+
+.logo-sub{
+font-size:11px;
+color:var(--muted);
+letter-spacing:1.5px;
+text-transform:uppercase;
+}
+
+.header-badge{
+background:rgba(255,255,255,0.07);
+border:1px solid rgba(255,255,255,0.12);
+color:rgba(255,255,255,0.6);
+font-size:11px;
+padding:6px 14px;
+border-radius:20px;
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(135deg,#0d0d0d,#1f2937);
+padding:64px 48px 80px;
+position:relative;
+overflow:hidden;
+}
+
+.hero-eyebrow{
+font-size:11px;
+letter-spacing:2.5px;
+text-transform:uppercase;
+color:var(--accent);
+margin-bottom:20px;
+font-weight:500;
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:48px;
+color:white;
+font-weight:700;
+line-height:1.15;
+margin-bottom:16px;
+}
+
+.hero h1 em{
+font-style:italic;
+color:var(--accent);
+}
+
+.hero-desc{
+color:rgba(255,255,255,0.5);
+font-size:15px;
+max-width:420px;
+line-height:1.7;
+}
+
+/* MAIN */
+
+.main{
+max-width:1160px;
+margin:auto;
+padding:56px 32px 80px;
+display:grid;
+grid-template-columns:420px 1fr;
+gap:48px;
+}
+
+/* FORM CARD */
+
+.form-card{
+background:rgba(255,255,255,0.92);
+backdrop-filter:blur(10px);
+border-radius:18px;
+box-shadow:0 10px 40px rgba(0,0,0,0.1);
+overflow:hidden;
+position:sticky;
+top:88px;
+}
+
+.form-card-header{
+background:linear-gradient(135deg,var(--ink),#2c2c2c);
+padding:28px 32px;
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.form-card-icon{
+width:40px;
+height:40px;
+background:var(--accent);
+border-radius:8px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+}
+
+.form-card-title{
+font-family:'Playfair Display',serif;
+font-size:18px;
+color:white;
+font-weight:600;
+}
+
+.form-card-subtitle{
+font-size:12px;
+color:rgba(255,255,255,0.45);
+}
+
+.form-body{
+padding:32px;
+}
+
+.field{
+margin-bottom:20px;
+}
+
+label{
+display:block;
+font-size:11px;
+font-weight:500;
+letter-spacing:1px;
+text-transform:uppercase;
+color:var(--muted);
+margin-bottom:8px;
+}
+
+input,select{
+width:100%;
+padding:12px 16px;
+border:1.5px solid var(--border);
+border-radius:10px;
+font-size:14px;
+background:var(--paper);
+outline:none;
+}
+
+input:focus,select:focus{
+border-color:var(--accent);
+background:white;
+box-shadow:0 0 0 3px rgba(37,99,235,0.15);
+}
+
+/* BUTTON */
+
+.submit-btn{
+width:100%;
+padding:14px;
+background:linear-gradient(135deg,var(--accent),var(--accent-dark));
+color:white;
+font-size:14px;
+font-weight:500;
+border:none;
+border-radius:10px;
+cursor:pointer;
+transition:all .25s;
+}
+
+.submit-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 6px 18px rgba(37,99,235,0.4);
+}
+
+/* RIGHT PANEL */
+
+.panel-title{
+font-family:'Playfair Display',serif;
+font-size:26px;
+font-weight:700;
+margin-bottom:24px;
+}
+
+.paper-count{
+background:var(--accent);
+color:white;
+font-size:12px;
+padding:4px 12px;
+border-radius:20px;
+}
+
+.paper-list{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+/* PAPER CARD */
+
+.paper-card{
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(6px);
+border:1px solid rgba(0,0,0,0.06);
+border-radius:14px;
+padding:22px 26px;
+transition:all .2s;
+position:relative;
+}
+
+.paper-card:hover{
+transform:translateY(-4px) scale(1.01);
+box-shadow:0 16px 40px rgba(0,0,0,0.12);
+}
+
+.paper-card::before{
+content:'';
+position:absolute;
+left:0;
+top:0;
+bottom:0;
+width:4px;
+background:var(--accent);
+border-radius:4px 0 0 4px;
+}
+
+.paper-title{
+font-family:'Playfair Display',serif;
+font-size:16px;
+font-weight:600;
+margin-bottom:10px;
+}
+
+.domain-badge{
+font-size:11px;
+padding:4px 10px;
+border-radius:4px;
+background:#eef2ff;
+color:#3730a3;
+}
+
+.paper-meta{
+display:flex;
+gap:18px;
+font-size:13px;
+color:var(--muted);
+}
+
+/* EMPTY */
+
+.empty-state{
+background:white;
+border:1.5px dashed var(--border);
+border-radius:12px;
+padding:56px 32px;
+text-align:center;
+color:var(--muted);
+}
+
+/* FOOTER */
+
+footer{
+background:var(--ink);
+padding:20px;
+text-align:center;
+font-size:12px;
+color:rgba(255,255,255,0.3);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+.main{
+grid-template-columns:1fr;
+}
+.form-card{
+position:static;
+}
+.hero{
+padding:40px 24px 56px;
+}
+header{
+padding:0 24px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+<div class="logo-mark">RP</div>
+<div>
+<div class="logo-text">ResearchPortal</div>
+<span class="logo-sub">PES University · OOAD</span>
+</div>
+</div>
+
+<div class="header-badge">Made by PES2UG23CS485</div>
+</header>
+
+<div class="hero">
+<div class="hero-eyebrow">Submission Portal</div>
+<h1>Share Your <em>Research</em><br/>With the World</h1>
+<p class="hero-desc">Submit your research papers for review and tracking.</p>
+</div>
+
+<div class="main">
+
+<div class="form-card">
+
+<div class="form-card-header">
+<div class="form-card-icon">📄</div>
+<div>
+<div class="form-card-title">New Submission</div>
+<div class="form-card-subtitle">All fields required</div>
+</div>
+</div>
+
+<div class="form-body">
+
+<form th:action="@{/save}" th:object="${paper}" method="post">
+
+<div class="field">
+<label>Author Name</label>
+<input type="text" th:field="*{authorName}" placeholder="Dr. Jane Smith"/>
+</div>
+
+<div class="field">
+<label>Email Address</label>
+<input type="text" th:field="*{email}" placeholder="author@university.edu"/>
+</div>
+
+<div class="field">
+<label>Paper Title</label>
+<input type="text" th:field="*{paperTitle}" placeholder="Enter paper title"/>
+</div>
+
+<div class="field">
+<label>Research Domain</label>
+<select th:field="*{researchDomain}">
+<option value="AI">Artificial Intelligence</option>
+<option value="ML">Machine Learning</option>
+<option value="IoT">Internet of Things</option>
+<option value="Blockchain">Blockchain</option>
+<option value="Cybersecurity">Cybersecurity</option>
+</select>
+</div>
+
+<button type="submit" class="submit-btn">
+Submit Paper
+</button>
+
+</form>
+
+</div>
+</div>
+
+<div class="right-panel">
+
+<h2 class="panel-title">Submitted Papers</h2>
+
+<div class="paper-list" th:each="p : ${papers}">
+
+<div class="paper-card">
+
+<div class="paper-title" th:text="${p.paperTitle}"></div>
+
+<div class="paper-meta">
+<span th:text="${p.authorName}"></span>
+<span th:text="${p.email}"></span>
+<span th:text="${p.submissionDate}"></span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 PES University · Department of Computer Science
+</footer>
+
+</body>
+</html>
