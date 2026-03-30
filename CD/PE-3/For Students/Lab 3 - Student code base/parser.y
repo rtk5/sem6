@@ -1,5 +1,5 @@
 %{
-    #include "sym_tab.c"
+    #include "sym_tab.h"
     #include <stdio.h>
     #include <stdlib.h>
     #include <string.h>
