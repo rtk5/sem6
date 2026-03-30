@@ -3,59 +3,91 @@
 #include <string.h>
 #include "sym_tab.h"
 
-table* init_table()	
+table* allocate_space_for_table()
 {
-	/*
-        allocate space for table pointer structure eg (t_name)* t
-        initialise head variable eg t->head
-        return structure
-    	*/
+    table* t1 = (table*)malloc(sizeof(table));
+    t1->head = NULL;
+    return t1;
 }
 
-symbol* init_symbol(char* name, int size, int type, int lineno, int scope) //allocates space for items in the list
+symbol* allocate_space_for_table_entry(char* name, int size, int type, int lineno, int scope)
 {
-	/*
-        allocate space for entry pointer structure eg (s_name)* s
-        initialise all struct variables(name, value, type, scope, length, line number)
-        return structure
-    	*/
+    symbol* s = (symbol*)malloc(sizeof(symbol));
+
+    s->name = strdup(name);
+    s->size = size;
+    s->type = type;
+    s->val = NULL;
+    s->line = lineno;
+    s->scope = scope;
+    s->next = NULL;
+
+    return s;
 }
 
-insert_into_table(arguments)/* 
- arguments can be the structure s_name already allocated before this function call
- or the variables to be sent to allocate_space_for_table_entry for initialisation        
-*/
+void insert_into_table(symbol* s)
 {
-    /*
-        check if table is empty or not using the struct table pointer
-        else traverse to the end of the table and insert the entry
-    */
+    if (t->head == NULL)
+    {
+        t->head = s;
+        return;
+    }
+
+    symbol* temp = t->head;
+    while (temp->next != NULL)
+        temp = temp->next;
+
+    temp->next = s;
 }
 
-check_symbol_table(name) //return a value like integer for checking
+int check_symbol_table(char* name)
 {
-    /*
-        check if table is empty and return a value like 0
-        else traverse the table
-        if entry is found return a value like 1
-        if not return a value like 0
-    */
+    if (t->head == NULL)
+        return 0;
+
+    symbol* temp = t->head;
+
+    while (temp != NULL)
+    {
+        if (strcmp(temp->name, name) == 0)
+            return 1;
+        temp = temp->next;
+    }
+    return 0;
 }
 
-insert_value_to_name(name,value)
+void insert_value_to_name(char* name, char* value)
 {
-    /*
-        if value is default value return back
-        check if table is empty
-        else traverse the table and find the name
-        insert value into the entry structure
-    */
+    symbol* temp = t->head;
+
+    while (temp != NULL)
+    {
+        if (strcmp(temp->name, name) == 0)
+        {
+            temp->val = strdup(value);
+            return;
+        }
+        temp = temp->next;
+    }
 }
 
-display_symbol_table()
+void display_symbol_table()
 {
-    /*
-        traverse through table and print every entry
-        with its struct variables
-    */
+    symbol* temp = t->head;
+
+    printf("\nSymbol Table:\n");
+    printf("Name\tSize\tType\tLine\tScope\tValue\n");
+
+    while (temp != NULL)
+    {
+        printf("%s\t%d\t%d\t%d\t%d\t%s\n",
+               temp->name,
+               temp->size,
+               temp->type,
+               temp->line,
+               temp->scope,
+               temp->val ? temp->val : "NULL");
+
+        temp = temp->next;
+    }
 }
