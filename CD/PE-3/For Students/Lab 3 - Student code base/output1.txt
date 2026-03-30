@@ -1,0 +1,8 @@
+Valid syntax
+
+Name       Kind       Type       Storage    Size  Scope  Line   Col    File       Value     
+main       function   int        auto       4     0      2      13     input.c    NULL      
+a          variable   int        auto       4     1      3      21     input.c    NULL      
+b          variable   float      auto       4     1      4      31     input.c    NULL      
+c          variable   double     auto       8     1      5      42     input.c    NULL      
+d          variable   char       auto       1     1      6      51     input.c    NULL      

@@ -3,6 +3,8 @@
 #include <string.h>
 #include "sym_tab.h"
 
+table* t;
+
 table* allocate_space_for_table()
 {
     table* t1 = (table*)malloc(sizeof(table));
@@ -10,22 +12,35 @@ table* allocate_space_for_table()
     return t1;
 }
 
-symbol* allocate_space_for_table_entry(char* name, int size, int type, int lineno, int scope)
+symbol* create_symbol(
+    char* name,
+    char* kind,
+    char* type,
+    char* storage,
+    int size,
+    int line,
+    int column,
+    char* file,
+    int scope)
 {
     symbol* s = (symbol*)malloc(sizeof(symbol));
 
     s->name = strdup(name);
+    s->kind = strdup(kind);
+    s->type = strdup(type);
+    s->storage = strdup(storage);
     s->size = size;
-    s->type = type;
-    s->val = NULL;
-    s->line = lineno;
+    s->value = NULL;
+    s->line = line;
+    s->column = column;
+    s->file = strdup(file);
     s->scope = scope;
     s->next = NULL;
 
     return s;
 }
 
-void insert_into_table(symbol* s)
+void insert_symbol(symbol* s)
 {
     if (t->head == NULL)
     {
@@ -34,20 +49,16 @@ void insert_into_table(symbol* s)
     }
 
     symbol* temp = t->head;
-    while (temp->next != NULL)
+    while (temp->next)
         temp = temp->next;
 
     temp->next = s;
 }
 
-int check_symbol_table(char* name)
+int lookup(char* name)
 {
-    if (t->head == NULL)
-        return 0;
-
     symbol* temp = t->head;
-
-    while (temp != NULL)
+    while (temp)
     {
         if (strcmp(temp->name, name) == 0)
             return 1;
@@ -56,15 +67,14 @@ int check_symbol_table(char* name)
     return 0;
 }
 
-void insert_value_to_name(char* name, char* value)
+void update_value(char* name, char* value)
 {
     symbol* temp = t->head;
-
-    while (temp != NULL)
+    while (temp)
     {
         if (strcmp(temp->name, name) == 0)
         {
-            temp->val = strdup(value);
+            temp->value = strdup(value);
             return;
         }
         temp = temp->next;
@@ -75,18 +85,22 @@ void display_symbol_table()
 {
     symbol* temp = t->head;
 
-    printf("\nSymbol Table:\n");
-    printf("Name\tSize\tType\tLine\tScope\tValue\n");
+    printf("\n%-10s %-10s %-10s %-10s %-5s %-6s %-6s %-6s %-10s %-10s\n",
+           "Name","Kind","Type","Storage","Size","Scope","Line","Col","File","Value");
 
-    while (temp != NULL)
+    while (temp)
     {
-        printf("%s\t%d\t%d\t%d\t%d\t%s\n",
+        printf("%-10s %-10s %-10s %-10s %-5d %-6d %-6d %-6d %-10s %-10s\n",
                temp->name,
-               temp->size,
+               temp->kind,
                temp->type,
-               temp->line,
+               temp->storage,
+               temp->size,
                temp->scope,
-               temp->val ? temp->val : "NULL");
+               temp->line,
+               temp->column,
+               temp->file,
+               temp->value ? temp->value : "NULL");
 
         temp = temp->next;
     }
