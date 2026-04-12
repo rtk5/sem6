@@ -1,0 +1,37 @@
+=== Abstract Syntax Tree ===
+
+SEQ
+  ASSIGN
+    ID(x)
+    BINOP(+)
+      ID(a)
+      ID(b)
+  SEQ
+    IF_ELSE
+      COND:
+        RELOP(<)
+          ID(x)
+          ID(y)
+      THEN:
+        ASSIGN
+          ID(z)
+          BINOP(+)
+            ID(x)
+            NUM(1)
+      ELSE:
+        ASSIGN
+          ID(z)
+          BINOP(+)
+            ID(y)
+            NUM(2)
+    DO_WHILE
+      BODY:
+        ASSIGN
+          ID(x)
+          BINOP(+)
+            ID(x)
+            NUM(1)
+      COND:
+        RELOP(<)
+          ID(x)
+          ID(y)

@@ -1,0 +1,20 @@
+=== Intermediate Code (Quadruples) ===
+
+(+, a, b, t1)
+(=, t1, -, x)
+(if <, x, y, L1)
+(goto, -, -, L2)
+L1:
+(+, x, 1, t2)
+(=, t2, -, z)
+(goto, -, -, L3)
+L2:
+(+, y, 2, t3)
+(=, t3, -, z)
+L3:
+L4:
+(+, x, 1, t4)
+(=, t4, -, x)
+(if <, x, y, L4)
+(goto, -, -, L5)
+L5:
